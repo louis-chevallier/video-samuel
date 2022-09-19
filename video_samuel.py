@@ -16,11 +16,10 @@ v2 = '/mnt/hd1/data/download/DJI_0100.MP4'
 pano = (VideoFileClip(v2, audio=False).subclip("03:25", "03:44"))
 #pano = pano.fx( vfx.speedx, 0.5)
 
-title = (TextClip('Laura & Samuel vus du ciel',
+title = (TextClip('Laura, Samuel & cie vus du ciel',
                    color='white',
 #                  font="Amiri-Bold",
                    kerning = 5, fontsize=100).set_duration(2.5).fadein(.5).fadeout(.5))
-
 
 title = title.set_pos('center').set_duration(10) 
 title = CompositeVideoClip([pano, title]) 
@@ -61,7 +60,7 @@ def concatenate_videoclips_fadeinout(video_clips) :
 size = pano.size
 EKOX(size)
 
-credits = (TextClip('Pink Floy - High Hopes',
+credits = (TextClip('Musique \nPink Floy - High Hopes',
                     color='white',
                     font="Amiri-Bold",
                     kerning = 5, fontsize=100, size=size).set_duration(2.5).set_pos('center'))
@@ -77,10 +76,10 @@ im = ImageClip("./detect.png", duration=3)
 im = im.resize(newsize=(w,h))
 EKOX(im.size)
 
-annot = (TextClip('56 people detected,\n 0 boats detected',
+annot = (TextClip('56 people detected,\n 00 boats detected',
                   color='green',
 #                  font="Amiri-Bold",
-                  kerning = 5, fontsize=60).set_duration(1).set_position("top"))
+                  kerning = 5, fontsize=60).set_duration(2).set_position("top"))
 annot = CompositeVideoClip([im, annot])
 
 group_coucou_survol12 =  concatenate_videoclips([group_coucou_survol1, flash, flash0, im, annot, group_coucou_survol2])
@@ -103,8 +102,8 @@ audio = (AudioFileClip("/mnt/hd2/data/PinkFloyd.mkv")
 #.set_duration(final.duration))
 
 EKOX(audio.duration)
-clic = AudioFileClip("/mnt/hd2/data/clic.mkv").set_duration(1)
-audio = CompositeAudioClip([audio, clic.set_start(4)])
+clic = AudioFileClip("/mnt/hd2/data/clic.mkv").set_duration(1).volumex(3)
+audio = CompositeAudioClip([audio, clic.set_start("02:48")])
 EKOX(audio.duration)
 
 EKOX(audio)
