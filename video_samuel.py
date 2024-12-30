@@ -60,7 +60,7 @@ def concatenate_videoclips_fadeinout(video_clips) :
 size = pano.size
 EKOX(size)
 
-credits = (TextClip('Musique \nPink Floy - High Hopes',
+credits = (TextClip('Musique \nPink Floyd \n High Hopes',
                     color='white',
                     font="Amiri-Bold",
                     kerning = 5, fontsize=100, size=size).set_duration(2.5).set_pos('center'))
